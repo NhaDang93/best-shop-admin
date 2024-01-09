@@ -1,30 +1,30 @@
 // ** React Imports
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 // ** MUI Imports
-import CssBaseline from "@mui/material/CssBaseline";
-import GlobalStyles from "@mui/material/GlobalStyles";
+import CssBaseline from '@mui/material/CssBaseline';
+import GlobalStyles from '@mui/material/GlobalStyles';
 import {
   ThemeProvider,
   createTheme,
   responsiveFontSizes,
-} from "@mui/material/styles";
+} from '@mui/material/styles';
 
 // ** Type Imports
-import { Settings } from "../context/settingsContext";
+import { Settings } from '@/context/settingsContext';
 
 // ** Theme Config
-import themeConfig from "../configs/themeConfig";
+import themeConfig from '@/configs/themeConfig';
 
 // ** Theme Override Imports
-import overrides from "./overrides";
-import typography from "./typography";
+import overrides from './overrides';
+import typography from './typography';
 
 // ** Theme
-import themeOptions from "./ThemeOptions";
+import themeOptions from './ThemeOptions';
 
 // ** Global Styles
-import GlobalStyling from "./globalStyles";
+import GlobalStyling from './globalStyles';
 
 interface Props {
   settings: Settings;

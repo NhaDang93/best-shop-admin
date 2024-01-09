@@ -1,8 +1,8 @@
 // ** MUI Imports
-import { Theme } from '@mui/material/styles';
+import { Theme } from '@mui/material/styles'
 
 // ** Util Import
-import { hexToRGBA } from '../../utils/hex-to-rgba';
+import { hexToRGBA } from 'src/utils/hex-to-rgba'
 
 const Dialog = (theme: Theme) => ({
   MuiDialog: {
@@ -33,8 +33,8 @@ const Dialog = (theme: Theme) => ({
     styleOverrides: {
       root: {
         padding: theme.spacing(5.5, 6, 9),
-        fontSize: ` ${theme.spacing(8.5)} `,
-        textAlign: 'center',
+        fontSize: ` ${theme.spacing(8.5)} !important`,
+        textAlign: 'center'
       },
     },
   },
@@ -90,10 +90,9 @@ const Dialog = (theme: Theme) => ({
               },
             },
           },
-          '& .PrivateTimePickerToolbar-ampmSelection span.MuiTypography-root:not(.Mui-selected)':
-            {
-              color: hexToRGBA(theme.palette.primary.contrastText, 0.54),
-            },
+          '& .PrivateTimePickerToolbar-ampmSelection span.MuiTypography-root:not(.Mui-selected)': {
+            color: hexToRGBA(theme.palette.primary.contrastText, 0.54),
+          },
         },
 
         // Styling for Mobile Date Picker ends
@@ -111,11 +110,11 @@ const Dialog = (theme: Theme) => ({
         },
         '& .MuiButton-root': {
           textTransform: 'capitalize',
-          fontSize: theme.spacing(4),
-        },
+          fontSize: theme.spacing(4)
+        }
       },
     },
   },
-});
+})
 
-export default Dialog;
+export default Dialog

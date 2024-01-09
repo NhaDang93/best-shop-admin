@@ -1,3 +1,3 @@
-import getUserInfo from '../../../../backEnd/api/user';
+import getUserInfo from '@/backEnd/api/user';
 
 export default getUserInfo();

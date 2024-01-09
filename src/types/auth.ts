@@ -6,12 +6,19 @@ export interface IAuth {
   email?: string;
 }
 
+export enum LoginFormEnum {
+  password = 'password',
+  email = 'email',
+}
+
+export type LoginForm = Record<LoginFormEnum, any>;
+
+export interface ILogin {
+  access_token: string;
+}
+
 export interface ILoginParam {
   token?: string;
   email?: string;
   password?: string;
-}
-
-export interface IGetUserInfoParam {
-  check_token: boolean;
 }

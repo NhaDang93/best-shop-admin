@@ -8,11 +8,13 @@ import { useState } from 'react';
 // ** MUI Components
 import InputForm from '@/components/shared-components/designs/input-form';
 import InputPassword from '@/components/shared-components/designs/input-password';
-import { useUnLayoutContext } from '@/layouts/UnAuthLayout';
+import MessageAlert from '@/components/shared-components/message-alert';
+import { useAuth } from '@/state/auth/authContext';
 import { customRuleEmail, customRulePassword } from '@/utils/form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Checkbox, FormControlLabel, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
+import { isEmpty } from 'rambda';
 import { useForm } from 'react-hook-form';
 
 export enum LoginFormEnum {
@@ -93,7 +95,7 @@ const LoginWrapper = styled(Box)(() => ({
 const LoginComponent = () => {
   const { t } = useTranslation();
 
-  const { login } = useUnLayoutContext();
+  const { login, errorsFormLogin } = useAuth();
 
   const theme = useTheme();
 
@@ -124,7 +126,15 @@ const LoginComponent = () => {
 
   const onSubmit = async (data?: LoginForm) => {
     if (data) {
-      login?.(data);
+      login?.(
+        data,
+        () => {
+          console.log();
+        },
+        () => {
+          console.log();
+        }
+      );
     }
   };
 
@@ -152,6 +162,14 @@ const LoginComponent = () => {
         component="form"
         onSubmit={handleSubmit?.(onSubmit)}
       >
+        {!isEmpty(errorsFormLogin) && (
+          <MessageAlert
+            severity="error"
+            title={t('dialog:error')}
+            content={errorsFormLogin?.[0]?.message ?? ''}
+          />
+        )}
+
         <InputForm
           label="Email"
           control={control}

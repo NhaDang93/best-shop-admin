@@ -1,4 +1,4 @@
-import { LanguageEnum } from '../utils';
+import { LanguageEnum } from 'src/utils';
 
 export interface ILocale {
   key: LanguageEnum;

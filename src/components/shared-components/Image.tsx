@@ -7,7 +7,8 @@ import React, {
   useState,
 } from 'react';
 
-import { useIsMounted } from '../../hooks';
+import { useIsMounted } from '@/hooks';
+import defaultImage from '../../../public/images/image.png';
 
 type ImageProps = ClassAttributes<HTMLImageElement> &
   React.ImgHTMLAttributes<HTMLImageElement> & {
@@ -18,7 +19,7 @@ const ImageComponent = ({ alt, src, defaultSrc, ...props }: ImageProps) => {
   const [imageSrc, setImageSrc] = useState('');
 
   useEffect(() => {
-    setImageSrc(src || '');
+    setImageSrc(src || defaultImage.src);
   }, [src]);
 
   const isMounted = useIsMounted();
@@ -27,7 +28,7 @@ const ImageComponent = ({ alt, src, defaultSrc, ...props }: ImageProps) => {
     if (defaultSrc) {
       setImageSrc(defaultSrc);
     } else {
-      setImageSrc('');
+      setImageSrc(defaultImage.src);
     }
   }, [defaultSrc, isMounted]);
 

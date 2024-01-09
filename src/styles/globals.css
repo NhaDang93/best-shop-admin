@@ -4,7 +4,7 @@ body {
   color: #5e5873;
   font-weight: 400;
   font-size: 1rem;
-  font-family: 'Be VietNam Pro, sans-serif';
+  font-family: 'Noto Sans';
   line-height: 1.5;
   font-feature-settings: 'tnum', 'tnum';
 }
@@ -14,7 +14,9 @@ body {
 }
 
 code {
-  font-family: 'Be VietNam Pro, sans-serif';
+  font-family: 'Inter', sans-serif, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue';
   padding: 0.1rem 0.4rem;
   font-size: 90%;
   color: #d400ff;
@@ -61,7 +63,6 @@ input::-ms-clear {
 .MuiTablePagination-menuItem.Mui-selected {
   background-color: transparent !important;
   color: #2196f3;
-  
 }
 .MuiTablePagination-menuItem.Mui-selected:hover {
   background: rgba(243, 242, 247, 0.8) !important;
@@ -82,6 +83,7 @@ body {
   width: 100%;
   min-height: 100%;
 }
+
 .layout-mui {
   background: #f2f3f7;
   box-sizing: border-box;
@@ -91,22 +93,4 @@ body {
   min-height: 100%;
   position: relative;
   min-height: 100vh;
-}
-
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5;
-}
-
-::-webkit-scrollbar-thumb {
-  -webkit-box-shadow: inset 0 0 6px hsla(0,0%,100%,0);
-  box-shadow: inset 0 0 6px hsla(0,0%,100%,0);
-  border-radius: 5px;
-  background-color: #ffc20e;
-}
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px hsla(0,0%,100%,0);
-  box-shadow: inset 0 0 6px hsla(0,0%,100%,0);
-  border-radius: 20px;
-  background-color: #f5f5f5;
 }

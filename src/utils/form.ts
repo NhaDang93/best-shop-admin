@@ -1,9 +1,9 @@
-import { translate } from 'src/i18n/translate';
+import { translate } from '@/i18n/translate';
 import {
   rxASCII,
   rxMustContainAlphabet,
   rxMustContainNumber,
-} from 'src/utils/regex';
+} from '@/utils/regex';
 import * as Yup from 'yup';
 import { StringSchema } from 'yup';
 

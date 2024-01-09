@@ -3,8 +3,8 @@ import { api } from 'src/utils/api';
 import { appSlice } from './slices/app';
 
 const rootReducer = combineReducers({
-  [api.reducerPath]: api.reducer,
   app: appSlice.reducer,
+  [api.reducerPath]: api.reducer,
 });
 
 export default rootReducer;

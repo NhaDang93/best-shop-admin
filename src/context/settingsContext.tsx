@@ -1,17 +1,15 @@
 // ** React Imports
 import { createContext, ReactNode, useEffect, useMemo, useState } from 'react';
-
+import { useTranslation } from 'react-i18next';
+import { Cookies, CookiesKey, LanguageEnum } from 'src/utils';
 // ** MUI Imports
 import { PaletteMode } from '@mui/material';
 
 // ** ThemeConfig Import
-import themeConfig from 'src/configs/themeConfig';
+import themeConfig from '@/configs/themeConfig';
 
 // ** Types Import
-import { useTranslation } from 'react-i18next';
-import { ContentWidth, ThemeColor } from 'src/layouts/types';
-import { Cookies, CookiesKey, LanguageEnum } from 'src/utils';
-import { LAYOUT_DETAIL_WIDTH } from 'src/utils/constants';
+import { ContentWidth, Skin, ThemeColor } from '@/layouts/types';
 
 export type Settings = {
   mode: PaletteMode;
@@ -19,7 +17,11 @@ export type Settings = {
   contentWidth: ContentWidth;
   language: LanguageEnum;
   layoutDetailWidth: number;
+  skin: Skin;
+  navCollapsed: boolean;
 };
+
+const LAYOUT_DETAIL_WIDTH = 1064;
 
 export type SettingsContextValue = {
   settings: Settings;
@@ -32,6 +34,11 @@ const initialSettings: Settings = {
   contentWidth: themeConfig.contentWidth,
   layoutDetailWidth: LAYOUT_DETAIL_WIDTH,
   language: LanguageEnum.en_US,
+  skin:
+    themeConfig.layout === 'horizontal' && themeConfig.skin === 'semi-dark'
+      ? 'default'
+      : themeConfig.skin,
+  navCollapsed: themeConfig.navCollapsed,
 };
 
 // ** Create Context
@@ -43,12 +50,13 @@ export const SettingsContext = createContext<SettingsContextValue>({
 export const SettingsProvider = ({ children }: { children: ReactNode }) => {
   // ** State
   const [settings, setSettings] = useState<Settings>({ ...initialSettings });
+
   const { i18n } = useTranslation();
 
   const saveSettings = async (updatedSettings: Settings) => {
     if (updatedSettings?.language !== settings.language) {
       await Cookies.save(CookiesKey.LANGUAGE, updatedSettings?.language);
-      await i18n.changeLanguage(updatedSettings?.language);
+      // await i18n.changeLanguage(updatedSettings?.language);
     }
     setSettings(updatedSettings);
   };
@@ -60,7 +68,7 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
       )) as LanguageEnum;
       await saveSettings({
         ...settings,
-        language: language ?? LanguageEnum.vi_VN,
+        language: language ?? LanguageEnum.en_US,
       });
     })();
   }, []);

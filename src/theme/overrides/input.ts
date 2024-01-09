@@ -17,7 +17,7 @@ const input = (theme: Theme) => ({
           },
         },
         '&.Mui-focused': {
-          color: `#FFC20E`,
+          color: theme.palette.text.primary,
         },
       },
     },
@@ -41,10 +41,6 @@ const input = (theme: Theme) => ({
       },
       '& .MuiInputLabel-asterisk': {
         color: theme.palette.error.main,
-      },
-      '& .Mui-focused': {
-        color: `#FFC20E`,
-        border: `1px solid #FFC20E`,
       },
     },
   },
@@ -79,9 +75,8 @@ const input = (theme: Theme) => ({
           borderColor: `rgba(${theme.palette.customColors.main}, 0.32)`,
         },
         '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-          color: '#FFC20E',
           borderWidth: `1px`,
-          border: `1px solid #FFC20E`,
+          borderColor: `rgba(${theme.palette.customColors.main}, 0.22)`,
         },
         '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
           borderColor: theme.palette.text.disabled,

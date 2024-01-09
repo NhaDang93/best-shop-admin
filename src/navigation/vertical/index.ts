@@ -8,11 +8,6 @@ const navigation = (): VerticalNavItemsType => [
     icon: GridViewOutlined as unknown as NavLink['icon'],
     path: '/',
   },
-  {
-    title: 'Layout NFT',
-    icon: GridViewOutlined as unknown as NavLink['icon'],
-    path: '/layout-nft',
-  },
 ];
 
 export default navigation;

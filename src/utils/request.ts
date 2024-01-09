@@ -1,14 +1,9 @@
+import { IError } from '@/types';
 import { BaseQueryFn } from '@reduxjs/toolkit/dist/query/react';
 import Axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { dispatch } from 'src/store/app-dispatch';
 import { setApiError } from 'src/store/slices/app';
-import {
-  Cookies,
-  CookiesKey,
-  IError,
-  LanguageEnum,
-  handleAxios,
-} from 'src/utils';
+import { Cookies, CookiesKey, LanguageEnum, handleAxios } from 'src/utils';
 
 const BASE_URL = process.env.NEXT_PUBLIC_HOST_API;
 const TIME_OUT_API = parseInt(process.env.TIME_OUT_API ?? '0', 10);

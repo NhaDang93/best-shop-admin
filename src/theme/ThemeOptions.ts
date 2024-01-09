@@ -3,7 +3,7 @@ import { ThemeOptions } from '@mui/material';
 import { deepmerge } from '@mui/utils';
 
 // ** Type Import
-import { Settings } from '../context/settingsContext';
+import { Settings } from '@/context/settingsContext';
 
 // ** Theme Override Imports
 import breakpoints from './breakpoints';
@@ -20,8 +20,19 @@ const themeOptions = (settings: Settings): ThemeOptions => {
     typography: {
       fontSize: 14,
       fontFamily: [
-        'Be VietNam Pro',
-        'sans-serif'
+        'Noto Sans',
+        'Inter',
+        'sans-serif',
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
       ].join(','),
     },
     shadows: shadows(mode),

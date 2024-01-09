@@ -1,1 +1,0 @@
-export const LAYOUT_DETAIL_WIDTH = 1064;

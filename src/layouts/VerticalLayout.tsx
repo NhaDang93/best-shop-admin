@@ -15,6 +15,17 @@ const VerticalLayout = (props: LayoutProps) => {
   return (
     <VerticalLayoutWrapper className="layout-wrapper">
       <SideBarComponent />
+      <div
+        style={{
+          position: 'relative',
+          left: '187px',
+          width: 'calc(100% - 187px)',
+          height: '100vh',
+        }}
+        className="layout-content-wrapper"
+      >
+        {/* <LayoutAppBar {...props} /> */}
+      </div>
     </VerticalLayoutWrapper>
   );
 };

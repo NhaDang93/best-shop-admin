@@ -1,10 +1,10 @@
 // ** MUI Imports
 import { MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import Box from '@mui/material/Box';
-import { ILocale } from 'src/types';
-import { useSettings } from 'src/hooks/useSettings';
-import { useRouter } from 'next/router';
 import { useTheme } from '@mui/material/styles';
+import { useRouter } from 'next/router';
+import { useSettings } from 'src/hooks/useSettings';
+import { ILocale } from 'src/types';
 import { LanguageEnum } from 'src/utils';
 
 const locales: ILocale[] = [
@@ -38,10 +38,10 @@ const Language = () => {
   const changeLanguage = async (event: SelectChangeEvent) => {
     event.preventDefault();
     if (event?.target?.value) {
-      saveSettings?.({
-        ...settings,
-        language: event?.target?.value as LanguageEnum,
-      });
+      // saveSettings({
+      //   ...settings,
+      //   language: event?.target?.value as LanguageEnum,
+      // });
       router.reload();
     }
   };

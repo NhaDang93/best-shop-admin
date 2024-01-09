@@ -2,7 +2,7 @@
 import { Theme } from '@mui/material/styles';
 
 // ** Theme Config Imports
-import themeConfig from '../../configs/themeConfig';
+import themeConfig from 'src/configs/themeConfig';
 
 const Button = (theme: Theme) => ({
   MuiButton: {
@@ -14,27 +14,6 @@ const Button = (theme: Theme) => ({
         lineHeight: 1.71,
         letterSpacing: '0.3px',
         padding: `${theme.spacing(1.875, 3)}`,
-        backgroundColor: '#FFC20E',
-
-        '@media (min-width:400px)': {
-          fontSize: '12px',
-        },
-        '@media (min-width:1024px)': {
-          fontSize: '12px',
-        },
-        '@media (min-width:1200px)': {
-          fontSize: '12px',
-        },
-        '@media (min-width:1400px)': {
-          fontSize: '16px',
-        },
-        ':hover': {
-          textDecoration: 'none',
-          boxShadow:
-            'rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px',
-          backgroundColor: '#FFC20E',
-          color: '#454F5B',
-        },
       },
       contained: {
         boxShadow: theme.shadows[3],

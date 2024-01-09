@@ -1,7 +1,5 @@
-import { useGetListYearMutation } from '@/apis/common';
+import { AuthProvider } from '@/state/auth/authContext';
 import { Box, styled } from '@mui/material';
-import { useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import background from '../../../../public/images/background_default_admin.png';
 import LoginComponent from './components/LoginForm';
 
@@ -59,30 +57,18 @@ const ImageWrapper = styled('div')(() => ({
 }));
 
 const LoginContainer = () => {
-  const [getListYear, getListYearRes] = useGetListYearMutation();
-
-  useEffect(() => {
-    const handleFetchCommonData = async () => {
-      await getListYear({
-        requestId: uuidv4() as string,
-        partnerId: 'SALE_PORTAL',
-        channelId: 'PORTAL',
-        requestTime: '2023-08-03 11:27:02',
-      }).unwrap();
-    };
-    handleFetchCommonData();
-  }, []);
-
   return (
-    <LoginWrapper>
-      <BackgroundRandomStyled>
-        <img src={`${background.src}`} alt="" />
-      </BackgroundRandomStyled>
-      <LoginContainerStyled>
-        <ImageWrapper />
-        <LoginComponent />
-      </LoginContainerStyled>
-    </LoginWrapper>
+    <AuthProvider>
+      <LoginWrapper>
+        <BackgroundRandomStyled>
+          <img src={`${background.src}`} alt="" />
+        </BackgroundRandomStyled>
+        <LoginContainerStyled>
+          <ImageWrapper />
+          <LoginComponent />
+        </LoginContainerStyled>
+      </LoginWrapper>
+    </AuthProvider>
   );
 };
 

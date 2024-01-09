@@ -2,17 +2,12 @@
 import { Theme } from '@mui/material/styles';
 
 // ** Util Import
-import { hexToRGBA } from '../../utils/hex-to-rgba';
+import { hexToRGBA } from 'src/utils/hex-to-rgba';
 
 const Pagination = (theme: Theme) => ({
   MuiPaginationItem: {
     styleOverrides: {
       root: {
-        "&.MuiPaginationItem-root.Mui-selected": {
-          color: "#FFF",
-          backgroundColor: "#ffc20e"
-      },
-      
         '&.Mui-selected:not(.Mui-disabled):not(.MuiPaginationItem-textPrimary):not(.MuiPaginationItem-textSecondary):hover':
           {
             backgroundColor: `rgba(${theme.palette.customColors.main}, 0.12)`,

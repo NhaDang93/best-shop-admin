@@ -10,7 +10,7 @@ async function dbConnect() {
 
   try {
     await mongoose.connect(
-      'mongodb+srv://dangquocnha:7LXCXbLZx1Dp9IkP@cluster0.zfhvzsi.mongodb.net/bestShop?retryWrites=true&w=majority',
+      'mongodb+srv://dangquocnhaiy93:7BMg9hjbcnWSiGWS@cluster0.pwbuvvr.mongodb.net/admin-best-shop?retryWrites=true&w=majority',
       { autoCreate: true, appName: '' }
     );
 

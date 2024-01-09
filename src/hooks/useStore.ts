@@ -1,8 +1,8 @@
+import { equals } from 'rambda';
 import { useDispatch, useSelector as useReduxSelector } from 'react-redux';
 import { AppDispatch, RootState } from 'src/store';
-import { equals } from 'rambda';
 
-// Use throughout your app instead of plain `useDispatch` and `useSelector`
+// Use throughout your app instead of plain useDispatch and useSelector
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 
 export function useAppSelector<T>(
