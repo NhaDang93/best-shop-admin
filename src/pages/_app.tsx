@@ -2,7 +2,7 @@
 // ** Next Imports
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
-import { Router, useRouter } from 'next/router';
+import { Router } from 'next/router';
 
 // ** Loader Import
 /* eslint-disable */
@@ -42,6 +42,7 @@ import { Provider } from 'react-redux';
 import { StoreWrapper } from 'src/store';
 // ** Language
 import ApiError from '@/components/common/modals/api-error';
+import { AuthProvider } from '@/state/auth/authContext';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import Head from 'next/head';
@@ -74,12 +75,7 @@ if (themeConfig.routingLoader) {
   });
 }
 
-const unAuthRequired = ['login', 'register', 'forgot-password'];
-
 const AppLayout = ({ Component, Element }: any) => {
-  const router = useRouter();
-  const isExits = unAuthRequired.find((x) => router.pathname.includes(x));
-
   const children = Component?.getLayout ? (
     Component?.getLayout(Element)
   ) : (
@@ -155,12 +151,14 @@ const App = ({ Component, ...rest }: ExtendedAppProps) => {
                 <SettingsConsumer>
                   {({ settings }) => (
                     <ThemeComponent settings={settings}>
-                      <AppLayout
-                        Element={<Component {...pageProps} />}
-                        Component={Component}
-                      />
+                      <AuthProvider>
+                        <AppLayout
+                          Element={<Component {...pageProps} />}
+                          Component={Component}
+                        />
 
-                      <AppDispatch />
+                        <AppDispatch />
+                      </AuthProvider>
                     </ThemeComponent>
                   )}
                 </SettingsConsumer>

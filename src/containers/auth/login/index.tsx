@@ -1,4 +1,3 @@
-import { AuthProvider } from '@/state/auth/authContext';
 import { Box, styled } from '@mui/material';
 import background from '../../../../public/images/background_default_admin.png';
 import LoginComponent from './components/LoginForm';
@@ -58,17 +57,15 @@ const ImageWrapper = styled('div')(() => ({
 
 const LoginContainer = () => {
   return (
-    <AuthProvider>
-      <LoginWrapper>
-        <BackgroundRandomStyled>
-          <img src={`${background.src}`} alt="" />
-        </BackgroundRandomStyled>
-        <LoginContainerStyled>
-          <ImageWrapper />
-          <LoginComponent />
-        </LoginContainerStyled>
-      </LoginWrapper>
-    </AuthProvider>
+    <LoginWrapper>
+      <BackgroundRandomStyled>
+        <img src={`${background.src}`} alt="" />
+      </BackgroundRandomStyled>
+      <LoginContainerStyled>
+        <ImageWrapper />
+        <LoginComponent />
+      </LoginContainerStyled>
+    </LoginWrapper>
   );
 };
 
